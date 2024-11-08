@@ -1,4 +1,31 @@
+import 'package:clima/services/location.dart';
+import 'package:clima/services/networking.dart';
+
+const appid = 'YOUR_APP_ID';
+
 class WeatherModel {
+  Future getCityWeather(String city) async {
+    Networking networking = Networking(
+        mainUrl: 'api.openweathermap.org', subUrl: '/data/2.5/weather');
+
+    var weatherData = await networking.getCityData(city, appid);
+
+    return weatherData;
+  }
+
+  Future getLocationAndWeather() async {
+    Location location = Location();
+    await location.getLocation();
+
+    Networking networking = Networking(
+        mainUrl: 'api.openweathermap.org', subUrl: '/data/2.5/weather');
+
+    var weatherData =
+        await networking.getData(location.latitude, location.longitude, appid);
+
+    return weatherData;
+  }
+
   String getWeatherIcon(int condition) {
     if (condition < 300) {
       return '🌩';
@@ -9,7 +36,7 @@ class WeatherModel {
     } else if (condition < 700) {
       return '☃️';
     } else if (condition < 800) {
-      return '🌫';
+      return '☃️';
     } else if (condition == 800) {
       return '☀️';
     } else if (condition <= 804) {

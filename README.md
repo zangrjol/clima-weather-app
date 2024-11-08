@@ -1,34 +1,65 @@
-![App Brewery Banner](https://github.com/londonappbrewery/Images/blob/master/AppBreweryBanner.png)
 
+# Clima Weather App
 
-# Clima ☁
+A Flutter app that provides real-time weather information based on the user's location or by searching for a specific city. The app integrates with the OpenWeatherMap API and uses geolocation to provide accurate, current weather data with a user-friendly interface.
 
-## Our Goal
+## Screenshot
 
-The objective of this tutorial is to learn about asynchronous programming in Dart. We'll look at how to carry out time consuming tasks such as getting device location and networking to get data from the internet. 
+<p align="center">
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="images/home_screen_screenshot.png" alt="Home Screen" width="25%">
+    <figcaption>Home Screen</figcaption>
+  </figure>
+</p>
 
+## Features
+- **Location-Based Weather**: Fetches weather data based on the user’s current location.
+- **City Search**: Allows users to search for the weather in any city.
+- **Weather Icons and Messages**: Displays custom icons and messages based on the weather conditions.
+- **Styled Interface**: Designed with a clean and intuitive UI.
 
-## What you will create
+## Prerequisites
 
-We’re going to make a weather app inspired by the beautiful designs made by [Olia Gozha](https://dribbble.com/shots/4663154-). By the end of the module, you'll be able to find out the live weather data in the current location of the device as well as the weather for any city you can think of!
+- **Flutter SDK**
+- **Geolocator Package**: For accessing location data.
+- **http Package**: For making network requests.
 
-![Finished App](https://github.com/londonappbrewery/Images/blob/master/clima-demo.gif)
+## Installation
 
-## What you will learn
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/clima_weather_app.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd clima_weather_app
+   ```
+3. Install the required dependencies:
+   ```bash
+   flutter pub get
+   ```
 
-- How to use Dart to perform asynchronous tasks.
-- Understand async and await.
-- Learn about Futures and how to work with them.
-- How to network with the Dart http package.
-- What APIs are and how to use them to get data from the internet.
-- What JSONs are and how to parse them using the Dart convert package.
-- How to pass data forwards and backwards between screens using the Navigator.
-- How to handle exceptions in Dart using try/catch/throw.
-- Learn about the lifecycle of Stateful Widgets and how to override them.
-- How to use the Geolocator package to get live location data for both iOS and Android.
-- How to use the TextField Widget to take user input.
+4. Set up environment variables:
+   - Open `weather.dart` and replace `'YOUR_APP_ID'` with your actual OpenWeatherMap API key.
 
+## Usage
 
->This is a companion project to The App Brewery's Complete Flutter Development Bootcamp, check out the full course at [www.appbrewery.co](https://www.appbrewery.co/)
+1. **Run the App**:
+   ```bash
+   flutter run
+   ```
+2. Once the app is running, it will:
+   - Automatically fetch and display the weather for your current location.
+   - Allow you to search for the weather in a different city by tapping the city icon.
 
-![End Banner](https://github.com/londonappbrewery/Images/blob/master/readme-end-banner.png)
+## Code Overview
+
+- **main.dart**: Sets up the app with a dark theme and loads the `LoadingScreen`.
+- **LoadingScreen**: Fetches the user's current location and weather data.
+- **LocationScreen**: Displays weather data, including temperature, city, and a custom message.
+- **CityScreen**: Allows the user to enter a city name and fetch weather data for that city.
+- **WeatherModel**: Handles network requests to the OpenWeatherMap API and provides methods for formatting weather data.
+
+## License
+
+This project is licensed under the MIT License.
